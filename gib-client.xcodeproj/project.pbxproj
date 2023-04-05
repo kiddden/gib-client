@@ -7,18 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		80EAD14629DC66C400F43F81 /* gib_clientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD14529DC66C400F43F81 /* gib_clientApp.swift */; };
-		80EAD14829DC66C400F43F81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD14729DC66C400F43F81 /* ContentView.swift */; };
+		80EAD14629DC66C400F43F81 /* gibClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD14529DC66C400F43F81 /* gibClientApp.swift */; };
+		80EAD14829DC66C400F43F81 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD14729DC66C400F43F81 /* MainView.swift */; };
 		80EAD14A29DC66C600F43F81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80EAD14929DC66C600F43F81 /* Assets.xcassets */; };
 		80EAD14D29DC66C600F43F81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80EAD14C29DC66C600F43F81 /* Preview Assets.xcassets */; };
+		80EAD15729DC697400F43F81 /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD15629DC697400F43F81 /* Incident.swift */; };
+		80EAD15D29DC6B0D00F43F81 /* IncidentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD15C29DC6B0D00F43F81 /* IncidentRow.swift */; };
+		80EAD15F29DC6B2200F43F81 /* ReportIncidentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD15E29DC6B2200F43F81 /* ReportIncidentView.swift */; };
+		80EAD16129DC6B5D00F43F81 /* IncidentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD16029DC6B5D00F43F81 /* IncidentsViewModel.swift */; };
+		80EAD16629DC73ED00F43F81 /* NSMutableData+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD16529DC73ED00F43F81 /* NSMutableData+Ext.swift */; };
+		80EAD16929DC73FF00F43F81 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD16829DC73FF00F43F81 /* NetworkService.swift */; };
+		80EAD16B29DC7B6F00F43F81 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD16A29DC7B6F00F43F81 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		804B9FEC29DDE1B800F05C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		80EAD14229DC66C400F43F81 /* gib-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gib-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		80EAD14529DC66C400F43F81 /* gib_clientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gib_clientApp.swift; sourceTree = "<group>"; };
-		80EAD14729DC66C400F43F81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		80EAD14529DC66C400F43F81 /* gibClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gibClientApp.swift; sourceTree = "<group>"; };
+		80EAD14729DC66C400F43F81 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		80EAD14929DC66C600F43F81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80EAD14C29DC66C600F43F81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		80EAD15629DC697400F43F81 /* Incident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
+		80EAD15C29DC6B0D00F43F81 /* IncidentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentRow.swift; sourceTree = "<group>"; };
+		80EAD15E29DC6B2200F43F81 /* ReportIncidentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportIncidentView.swift; sourceTree = "<group>"; };
+		80EAD16029DC6B5D00F43F81 /* IncidentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentsViewModel.swift; sourceTree = "<group>"; };
+		80EAD16529DC73ED00F43F81 /* NSMutableData+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+Ext.swift"; sourceTree = "<group>"; };
+		80EAD16829DC73FF00F43F81 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		80EAD16A29DC7B6F00F43F81 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +66,13 @@
 		80EAD14429DC66C400F43F81 /* gib-client */ = {
 			isa = PBXGroup;
 			children = (
-				80EAD14529DC66C400F43F81 /* gib_clientApp.swift */,
-				80EAD14729DC66C400F43F81 /* ContentView.swift */,
+				804B9FEC29DDE1B800F05C0C /* Info.plist */,
+				80EAD16729DC73F500F43F81 /* Services */,
+				80EAD16429DC73DD00F43F81 /* Extentions */,
+				80EAD15329DC695B00F43F81 /* Models */,
+				80EAD15429DC696300F43F81 /* ViewContollers */,
+				80EAD15529DC696700F43F81 /* Views */,
+				80EAD14529DC66C400F43F81 /* gibClientApp.swift */,
 				80EAD14929DC66C600F43F81 /* Assets.xcassets */,
 				80EAD14B29DC66C600F43F81 /* Preview Content */,
 			);
@@ -65,6 +85,49 @@
 				80EAD14C29DC66C600F43F81 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		80EAD15329DC695B00F43F81 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80EAD15629DC697400F43F81 /* Incident.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80EAD15429DC696300F43F81 /* ViewContollers */ = {
+			isa = PBXGroup;
+			children = (
+				80EAD16029DC6B5D00F43F81 /* IncidentsViewModel.swift */,
+			);
+			path = ViewContollers;
+			sourceTree = "<group>";
+		};
+		80EAD15529DC696700F43F81 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				80EAD14729DC66C400F43F81 /* MainView.swift */,
+				80EAD15C29DC6B0D00F43F81 /* IncidentRow.swift */,
+				80EAD15E29DC6B2200F43F81 /* ReportIncidentView.swift */,
+				80EAD16A29DC7B6F00F43F81 /* MapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		80EAD16429DC73DD00F43F81 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				80EAD16529DC73ED00F43F81 /* NSMutableData+Ext.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		80EAD16729DC73F500F43F81 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				80EAD16829DC73FF00F43F81 /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +200,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80EAD14829DC66C400F43F81 /* ContentView.swift in Sources */,
-				80EAD14629DC66C400F43F81 /* gib_clientApp.swift in Sources */,
+				80EAD16929DC73FF00F43F81 /* NetworkService.swift in Sources */,
+				80EAD14829DC66C400F43F81 /* MainView.swift in Sources */,
+				80EAD15729DC697400F43F81 /* Incident.swift in Sources */,
+				80EAD16B29DC7B6F00F43F81 /* MapView.swift in Sources */,
+				80EAD15F29DC6B2200F43F81 /* ReportIncidentView.swift in Sources */,
+				80EAD14629DC66C400F43F81 /* gibClientApp.swift in Sources */,
+				80EAD16129DC6B5D00F43F81 /* IncidentsViewModel.swift in Sources */,
+				80EAD15D29DC6B0D00F43F81 /* IncidentRow.swift in Sources */,
+				80EAD16629DC73ED00F43F81 /* NSMutableData+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -270,11 +340,13 @@
 				DEVELOPMENT_TEAM = ZQ532X6DQG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "gib-client/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +354,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gib-client.gib-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -299,11 +374,13 @@
 				DEVELOPMENT_TEAM = ZQ532X6DQG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "gib-client/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +388,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gib-client.gib-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

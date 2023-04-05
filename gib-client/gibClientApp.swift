@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct gib_clientApp: App {
+struct gibClientApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
