@@ -12,11 +12,56 @@ struct IncidentRow: View {
     
     let incident: Incident
     
+    init(incident: Incident) {
+        self.incident = incident
+    }
+    
+    private var uiImage: UIImage? {
+        UIImage(data: incident.imageFile)
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            MapView(latitude: incident.latitude, longitude: incident.longitude)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: UIScreen.main.bounds.height/7)
+            if let uiImage = uiImage {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                
+            } else {
+                Text("Failed to upload image")
+            }
             
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: UIScreen.main.bounds.height/4.5)
+        .overlay(commentSection, alignment: .bottom)
+        .overlay(mapSection, alignment: .topTrailing)
+        .cornerRadius(10)
+//        .overlay(
+//            RoundedRectangle(cornerRadius: 10)
+//                .stroke(.gray, lineWidth: 1)
+//        )
+        .padding(.horizontal)
+        .shadow(radius: 10, x: 0, y: 0)
+    }
+    
+    private var mapWidgetSize: CGFloat = UIScreen.main.bounds.height/10
+    
+    private var mapSection: some View {
+        MapView(latitude: incident.latitude, longitude: incident.longitude) {
+            openMapsApp()
+        }
+            .frame(width: mapWidgetSize, height: mapWidgetSize)
+            .shadow(radius: 10, x: 0, y: 0)
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.gray, lineWidth: 1)
+            )
+            .padding(10)
+    }
+    
+    private var commentSection: some View {
+        HStack {
             VStack(alignment: .leading, spacing: 0) {
                 Text("Comment")
                     .font(.caption)
@@ -24,15 +69,10 @@ struct IncidentRow: View {
                 Text(incident.comment)
                     .font(.body)
             }
-            .padding()
+            Spacer()
         }
-        .background(Color(.systemGray6))
-        .cornerRadius(10)
-        .padding(.horizontal)
-        .shadow(radius: 4)
-        .onTapGesture {
-            openMapsApp()
-        }
+        .padding(10)
+        .background(.ultraThinMaterial)
     }
     
     private func openMapsApp() {

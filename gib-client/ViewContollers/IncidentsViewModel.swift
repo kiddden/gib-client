@@ -12,7 +12,7 @@ class IncidentsViewModel: ObservableObject {
 
     @Published var incidents: [Incident] = []
 
-    func getAllIncidents() {
+    func getAllIncidents(completion: @escaping () -> Void) {
         networkService.request(endpoint: "/incidents") { (result: Result<[Incident], NetworkError>) in
             DispatchQueue.main.async {
                 switch result {
@@ -21,6 +21,7 @@ class IncidentsViewModel: ObservableObject {
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
                 }
+                completion()
             }
         }
     }

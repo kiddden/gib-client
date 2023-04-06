@@ -15,17 +15,14 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                listOfIncidents
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .overlay(
-                    Button {
-                        incidentsVM.getAllIncidents()
-                    } label: {
-                        Text("Report incident")
-                    }
-                    .buttonStyle(.bordered)
-                , alignment: .bottom)
+                if loadingIncidents {
+                    loader
+                } else {
+                    listOfIncidents
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                }
             }
+            .background(Color(.secondarySystemBackground))
             .navigationTitle("Incidents list")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -40,7 +37,19 @@ struct MainView: View {
             .sheet(isPresented: $showSheet) {
                 ReportIncidentView()
             }
+            .onAppear {
+                incidentsVM.getAllIncidents {
+                    loadingIncidents = false
+                }
+            }
         }
+    }
+    
+    @State private var loadingIncidents = true
+    
+    private var loader: some View {
+        ProgressView()
+            .tint(Color(.systemBlue))
     }
     
     @State private var showSheet = false
@@ -48,7 +57,7 @@ struct MainView: View {
     private var listOfIncidents: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                ForEach(incidentsVM.incidents, id: \.id) { incident in
+                ForEach(incidentsVM.incidents.reversed(), id: \.id) { incident in
                     IncidentRow(incident: incident)
                 }
             }

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to know your location for creating reports</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -14,8 +16,6 @@
 		</dict>
 	</array>
 	<key>MKDirectionsApplicationSupportedModes</key>
-	<array>
-		<string>MKDirectionsModePedestrian</string>
-	</array>
+	<array/>
 </dict>
 </plist>
