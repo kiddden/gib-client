@@ -23,6 +23,9 @@ struct ReportIncidentView: View {
     var body: some View {
         NavigationView {
             Form {
+                if showValidationHint {
+                    validationHint
+                }
                 imageSelectionSection
                 commentSection
                 locationSection
@@ -39,14 +42,44 @@ struct ReportIncidentView: View {
                     Button {
                         reportIncident()
                     } label: {
-                        Text("Report")
+                        if reportingIncident {
+                            loader
+                        } else {
+                            Text("Report")
+                        }
                     }
+                    .disabled(reportingIncident)
                 }
             }
             .onAppear {
                 updateCurrentLocation()
             }
+            .alert(isPresented: $showAlert) {
+                errorAlert
+            }
         }
+    }
+    
+    @State private var showValidationHint = false
+    
+    private var validationHint: some View {
+        Text("Please fill all the fields in order to make report")
+            .foregroundColor(Color(.systemRed))
+    }
+    
+    @State private var showAlert = false
+    
+    private var errorAlert: Alert {
+        Alert(title: Text("Something went wrong"),
+              message: Text("Failed to report your incident, please try again"),
+              dismissButton: .default(Text("Got it!")))
+    }
+    
+    @State private var reportingIncident = false
+    
+    private var loader: some View {
+        ProgressView()
+            .tint(Color(.systemBlue))
     }
     
     private var imageSelectionSection: some View {
@@ -94,7 +127,7 @@ struct ReportIncidentView: View {
     }
     
     private func reportIncident() {
-        if let image = selectedImage {
+        if let image = selectedImage, !comment.isEmpty {
             let imageData = image.jpegData(compressionQuality: 1.0)!
             
             let incident = Incident(
@@ -104,16 +137,20 @@ struct ReportIncidentView: View {
                 longitude: coordinateRegion.center.longitude,
                 comment: comment
             )
+            withAnimation { reportingIncident = true }
             
             incidentsVM.addIncident(incident: incident) { result in
                 switch result {
-                case .success(let success):
-                    print(success)
+                case .success(_):
+                    withAnimation { reportingIncident = false }
                     dismiss()
-                case .failure(let failure):
-                    print(failure.localizedDescription)
+                case .failure(_):
+                    withAnimation { reportingIncident = false }
+                    showAlert = true
                 }
             }
+        } else {
+            withAnimation { showValidationHint = true }
         }
     }
     

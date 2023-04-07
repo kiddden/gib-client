@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-//    @Environment(\.colorScheme) var colorScheme
-    
     @ObservedObject private var incidentsVM = IncidentsViewModel()
     
     var body: some View {
@@ -19,10 +17,9 @@ struct MainView: View {
                     loader
                 } else {
                     listOfIncidents
-                    .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minWidth: 0, maxWidth: .infinity)
                 }
             }
-            .background(Color(.secondarySystemBackground))
             .navigationTitle("Incidents list")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -38,8 +35,10 @@ struct MainView: View {
                 ReportIncidentView()
             }
             .onAppear {
-                incidentsVM.getAllIncidents {
-                    loadingIncidents = false
+                DispatchQueue.main.async {
+                    incidentsVM.getAllIncidents {
+                        withAnimation { loadingIncidents = false }
+                    }
                 }
             }
         }
@@ -48,8 +47,7 @@ struct MainView: View {
     @State private var loadingIncidents = true
     
     private var loader: some View {
-        ProgressView()
-            .tint(Color(.systemBlue))
+        ProgressView().scaleEffect(2)
     }
     
     @State private var showSheet = false
@@ -61,6 +59,16 @@ struct MainView: View {
                     IncidentRow(incident: incident)
                 }
             }
+        }
+        .background(Color(.secondarySystemBackground))
+        .refreshable {
+            await refresh()
+        }
+    }
+    
+    private func refresh() async {
+        DispatchQueue.main.async {
+            self.incidentsVM.getAllIncidents { }
         }
     }
 }
