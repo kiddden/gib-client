@@ -36,13 +36,19 @@ struct MainView: View {
             }
             .onAppear {
                 DispatchQueue.main.async {
-                    incidentsVM.getAllIncidents {
+                    incidentsVM.getAllIncidentsJSONRPC {
                         withAnimation { loadingIncidents = false }
                     }
                 }
             }
         }
     }
+    
+    
+    //    @ViewBuilder
+    //    private var content: some View {
+    //
+    //    }
     
     @State private var loadingIncidents = true
     
@@ -68,7 +74,7 @@ struct MainView: View {
     
     private func refresh() async {
         DispatchQueue.main.async {
-            self.incidentsVM.getAllIncidents { }
+            self.incidentsVM.getAllIncidentsJSONRPC { }
         }
     }
 }

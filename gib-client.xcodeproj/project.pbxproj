@@ -10,6 +10,7 @@
 		80155A7929DF0572003608A9 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80155A7829DF0572003608A9 /* LocationService.swift */; };
 		804B9FF029DEE73E00F05C0C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804B9FEF29DEE73E00F05C0C /* ImagePicker.swift */; };
 		804B9FF229DEE82900F05C0C /* IdentifiableLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804B9FF129DEE82900F05C0C /* IdentifiableLocation.swift */; };
+		80D326032A2624A7006E44CD /* JSONRPCResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D326022A2624A7006E44CD /* JSONRPCResponse.swift */; };
 		80EAD14629DC66C400F43F81 /* gibClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD14529DC66C400F43F81 /* gibClientApp.swift */; };
 		80EAD14829DC66C400F43F81 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD14729DC66C400F43F81 /* MainView.swift */; };
 		80EAD14A29DC66C600F43F81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80EAD14929DC66C600F43F81 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		804B9FEC29DDE1B800F05C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		804B9FEF29DEE73E00F05C0C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		804B9FF129DEE82900F05C0C /* IdentifiableLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableLocation.swift; sourceTree = "<group>"; };
+		80D326022A2624A7006E44CD /* JSONRPCResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRPCResponse.swift; sourceTree = "<group>"; };
 		80EAD14229DC66C400F43F81 /* gib-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gib-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80EAD14529DC66C400F43F81 /* gibClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gibClientApp.swift; sourceTree = "<group>"; };
 		80EAD14729DC66C400F43F81 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -76,7 +78,7 @@
 				80EAD16729DC73F500F43F81 /* Services */,
 				80EAD16429DC73DD00F43F81 /* Extentions */,
 				80EAD15329DC695B00F43F81 /* Models */,
-				80EAD15429DC696300F43F81 /* ViewContollers */,
+				80EAD15429DC696300F43F81 /* ViewModels */,
 				80EAD15529DC696700F43F81 /* Views */,
 				80EAD14529DC66C400F43F81 /* gibClientApp.swift */,
 				80EAD14929DC66C600F43F81 /* Assets.xcassets */,
@@ -98,16 +100,17 @@
 			children = (
 				80EAD15629DC697400F43F81 /* Incident.swift */,
 				804B9FF129DEE82900F05C0C /* IdentifiableLocation.swift */,
+				80D326022A2624A7006E44CD /* JSONRPCResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		80EAD15429DC696300F43F81 /* ViewContollers */ = {
+		80EAD15429DC696300F43F81 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				80EAD16029DC6B5D00F43F81 /* IncidentsViewModel.swift */,
 			);
-			path = ViewContollers;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		80EAD15529DC696700F43F81 /* Views */ = {
@@ -211,6 +214,7 @@
 			files = (
 				80EAD16929DC73FF00F43F81 /* NetworkService.swift in Sources */,
 				804B9FF229DEE82900F05C0C /* IdentifiableLocation.swift in Sources */,
+				80D326032A2624A7006E44CD /* JSONRPCResponse.swift in Sources */,
 				80EAD14829DC66C400F43F81 /* MainView.swift in Sources */,
 				80EAD15729DC697400F43F81 /* Incident.swift in Sources */,
 				80EAD16B29DC7B6F00F43F81 /* MapView.swift in Sources */,

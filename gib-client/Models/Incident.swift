@@ -8,7 +8,7 @@
 import Foundation
 
 struct Incident: Codable, Identifiable {
-    let id: UUID
+    let id: UUID?
     let imageFile: Data
     let latitude: Double
     let longitude: Double

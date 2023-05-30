@@ -16,6 +16,8 @@ enum NetworkError: Error {
 class NetworkService {
     private let baseURL = "http://localhost:8080"
     
+    // MARK: REST API
+    
     func request<T: Codable>(endpoint: String, method: String = "GET", parameters: [String: Any]? = nil, headers: [String: String]? = nil, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = URL(string: baseURL + endpoint) else {
             completion(.failure(.badURL))
@@ -72,5 +74,50 @@ class NetworkService {
         formData.appendString("--Boundary--\r\n")
         
         return formData as Data
+    }
+    
+    // MARK: JSONRPC
+    
+    func jsonRpcRequest<T: Codable>(endpoint: String, method: String, params: [String: Any]? = nil, id: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        guard let url = URL(string: baseURL + endpoint) else {
+            completion(.failure(.badURL))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let jsonRpcObject: [String: Any] = [
+            "jsonrpc": "2.0",
+            "method": method,
+            "params": params ?? [:],
+            "id": id
+        ]
+        
+    
+        
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonRpcObject, options: []) else { return }
+        request.httpBody = jsonData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let _ = error {
+                completion(.failure(.networkError))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(.networkError))
+                return
+            }
+
+            do {
+                let decoded = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(decoded))
+            } catch {
+                completion(.failure(.decodingError))
+            }
+        }
+        task.resume()
     }
 }

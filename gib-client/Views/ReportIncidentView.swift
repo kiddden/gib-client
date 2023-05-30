@@ -128,7 +128,7 @@ struct ReportIncidentView: View {
     
     private func reportIncident() {
         if let image = selectedImage, !comment.isEmpty {
-            let imageData = image.jpegData(compressionQuality: 1.0)!
+            let imageData = image.jpegData(compressionQuality: 0.1)!
             
             let incident = Incident(
                 id: UUID(),
@@ -139,12 +139,19 @@ struct ReportIncidentView: View {
             )
             withAnimation { reportingIncident = true }
             
-            incidentsVM.addIncident(incident: incident) { result in
+            incidentsVM.addIncidentJSONRPC(incident: incident) { result in
                 switch result {
-                case .success(_):
+                case .success(let response):
+                    switch response.result {
+                    case .success(let result):
+                        break
+                    case .failure(let error):
+                        print(error.message)
+                    }
                     withAnimation { reportingIncident = false }
                     dismiss()
-                case .failure(_):
+                case .failure(let error):
+                    print(error.localizedDescription)
                     withAnimation { reportingIncident = false }
                     showAlert = true
                 }
